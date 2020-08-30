@@ -4,3 +4,6 @@ services:
 
 before_install:
   - docker build -t kevinmitaki/docker-intro -f Dockerfile.dev .
+
+script:
+  - docker run kevinmitaki/docker-intro npm run test -- --coverage
