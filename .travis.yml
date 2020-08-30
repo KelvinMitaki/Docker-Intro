@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run -e CI=true kevinmitaki/docker-intro npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-2"
+  app: "docker-intro"
+  env: "DockerIntro-env"
+  bucket_name: "elasticbeanstalk-eu-west-2-717469761592"
+  bucket_path: "docker-intro"
+  on:
+    branch: master
